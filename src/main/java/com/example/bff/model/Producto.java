@@ -10,6 +10,7 @@ public class Producto {
     private LocalDate registroFecha;
     private Long valorCosto;
     private Long valorVenta;
+    private String imagenUri;
 
     // Getters and Setters
     public Long getProductoId() {
@@ -66,5 +67,13 @@ public class Producto {
 
     public void setValorVenta(Long valorVenta) {
         this.valorVenta = valorVenta;
+    }
+
+    public String getImagenUri() {
+        return imagenUri;
+    }
+
+    public void setImagenUri(String imagenUri) {
+        this.imagenUri = imagenUri;
     }
 } 
