@@ -1,61 +1,51 @@
 package com.example.bff.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Carro {
     private Long carroId;
-    private Long usuarioId;
+    private String usuarioId;
     private Long productoId;
     private Long cantidad;
-    private LocalDate registroFecha;
-    private Integer vigenciaFlag;
+    private Date registroFecha;
+    private int vigenciaFlag;
 
     // Getters and Setters
     public Long getCarroId() {
         return carroId;
     }
-
     public void setCarroId(Long carroId) {
         this.carroId = carroId;
     }
-
-    public Long getUsuarioId() {
+    public String getUsuarioId() {
         return usuarioId;
     }
-
-    public void setUsuarioId(Long usuarioId) {
+    public void setUsuarioId(String usuarioId) {
         this.usuarioId = usuarioId;
     }
-
     public Long getProductoId() {
         return productoId;
     }
-
     public void setProductoId(Long productoId) {
         this.productoId = productoId;
     }
-
     public Long getCantidad() {
         return cantidad;
     }
-
     public void setCantidad(Long cantidad) {
         this.cantidad = cantidad;
     }
-
-    public LocalDate getRegistroFecha() {
+    public Date getRegistroFecha() {
         return registroFecha;
     }
-
-    public void setRegistroFecha(LocalDate registroFecha) {
+    public void setRegistroFecha(Date registroFecha) {
         this.registroFecha = registroFecha;
     }
-
-    public Integer getVigenciaFlag() {
+    public int getVigenciaFlag() {
         return vigenciaFlag;
     }
-
-    public void setVigenciaFlag(Integer vigenciaFlag) {
+    public void setVigenciaFlag(int vigenciaFlag) {
         this.vigenciaFlag = vigenciaFlag;
     }
+    
 } 

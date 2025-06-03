@@ -18,7 +18,7 @@ public class CarroController {
     }
 
     @GetMapping("/{id}")
-    public Mono<List<Carro>> getCarro(@PathVariable Long id) {
+    public Mono<List<Carro>> getCarro(@PathVariable String id) {
         return webClient.get()
                 .uri("/carro/{id}", id)
                 .retrieve()
