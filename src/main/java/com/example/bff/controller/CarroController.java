@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import java.util.List;
+import com.fasterxml.jackson.databind.JsonNode;
 
 @RestController
 @RequestMapping("/carro")
@@ -26,11 +27,12 @@ public class CarroController {
     }
 
     @PostMapping
-    public Mono<Carro> createCarro(@RequestBody Carro carro) {
+    public Mono<JsonNode> createCarro(@RequestBody JsonNode payload) {
+        System.out.println("payload: " + payload);
         return webClient.post()
                 .uri("/carro")
-                .bodyValue(carro)
+                .bodyValue(payload)
                 .retrieve()
-                .bodyToMono(Carro.class);
+                .bodyToMono(JsonNode.class);
     }
 } 
