@@ -9,55 +9,55 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController
-@RequestMapping("/producto")
-public class ProductoController {
+@RequestMapping("/ticket")
+public class TicketController {
 
     private final WebClient webClient;
 
-    public ProductoController(WebClient webClient) {
+    public TicketController(WebClient webClient) {
         this.webClient = webClient;
     }
 
     @GetMapping
-    public Mono<List<JsonNode>> getAllProductos() {
+    public Mono<List<JsonNode>> getAllTickets() {
         return webClient.get()
-                .uri("/producto")
+                .uri("/ticket")
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<JsonNode>>() {});
     }
 
     @GetMapping("/{id}")
-    public Mono<JsonNode> getProducto(@PathVariable String id) {
+    public Mono<JsonNode> getTicket(@PathVariable String id) {
         return webClient.get()
-                .uri("/producto/{id}", id)
+                .uri("/ticket/{id}", id)
                 .retrieve()
                 .bodyToMono(JsonNode.class);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Mono<JsonNode> createProducto(@RequestBody JsonNode producto) {
+    public Mono<JsonNode> createTicket(@RequestBody JsonNode ticket) {
         return webClient.post()
-                .uri("/producto")
-                .bodyValue(producto)
+                .uri("/ticket")
+                .bodyValue(ticket)
                 .retrieve()
                 .bodyToMono(JsonNode.class);
     }
 
     @PutMapping("/{id}")
-    public Mono<JsonNode> updateProducto(@PathVariable String id, @RequestBody JsonNode producto) {
+    public Mono<JsonNode> updateTicket(@PathVariable String id, @RequestBody JsonNode ticket) {
         return webClient.put()
-                .uri("/producto/{id}", id)
-                .bodyValue(producto)
+                .uri("/ticket/{id}", id)
+                .bodyValue(ticket)
                 .retrieve()
                 .bodyToMono(JsonNode.class);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public Mono<Void> deleteProducto(@PathVariable String id) {
+    public Mono<Void> deleteTicket(@PathVariable String id) {
         return webClient.delete()
-                .uri("/producto/{id}", id)
+                .uri("/ticket/{id}", id)
                 .retrieve()
                 .bodyToMono(Void.class);
     }

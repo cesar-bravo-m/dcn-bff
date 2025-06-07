@@ -4,7 +4,7 @@ info:
   description: API para gestión de tienda
   version: 1.0.0
 servers:
-  - url: http://localhost:80
+  - url: http://localhost:8081
     description: Servidor local
 
 paths:
@@ -341,7 +341,8 @@ components:
           format: date
         vigenciaFlag:
           type: integer
-          format: int32
+        ticketId:
+          type: integer
 
     Usuario:
       type: object
@@ -355,4 +356,16 @@ components:
           type: string
         loginUltimo:
           type: string
-          format: date-time 
+          format: date-time
+
+    Ticket:
+      type: object
+      properties:
+        ticketId:
+          type: integer
+          format: int64
+        total:
+          type: string
+        registroFecha:
+          type: string
+          format: date 
